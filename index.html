@@ -5,82 +5,80 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>St. Mary’s Jacobite Syrian Church</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Toggle mobile menu
+    function toggleMenu() {
+      document.getElementById("mobile-menu").classList.toggle("hidden");
+    }
+  </script>
 </head>
-<body class="font-sans">
+<body class="font-sans text-gray-800">
 
   <!-- Navbar -->
-  <nav class="absolute top-0 left-0 w-full z-20">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="flex justify-between items-center py-4">
-        
-        <!-- Logo -->
-        <div class="text-white text-2xl font-bold">St. Mary’s Church</div>
+  <nav class="bg-white shadow-md fixed w-full top-0 left-0 z-20">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-blue-800">St. Mary’s Church</a>
 
-        <!-- Desktop Menu -->
-        <div class="hidden md:flex space-x-8 text-white font-medium">
-          <a href="index.html" class="hover:text-yellow-400">Home</a>
-
-          <!-- About dropdown -->
-          <div class="relative group">
-            <button class="hover:text-yellow-400">About</button>
-            <div class="absolute hidden group-hover:block bg-white text-gray-800 mt-2 rounded-lg shadow-lg w-40">
-              <a href="about.html" class="block px-4 py-2 hover:bg-gray-200">About Us</a>
-              <a href="ministries.html" class="block px-4 py-2 hover:bg-gray-200">Ministries</a>
-              <a href="events.html" class="block px-4 py-2 hover:bg-gray-200">Upcoming Events</a>
-            </div>
-          </div>
-
-          <a href="gallery.html" class="hover:text-yellow-400">Gallery</a>
-          <a href="contact.html" class="hover:text-yellow-400">Contact</a>
-        </div>
-
-        <!-- Mobile Hamburger -->
-        <div class="md:hidden">
-          <button id="menu-btn" class="text-white focus:outline-none">
-            ☰
-          </button>
-        </div>
+      <!-- Desktop Menu -->
+      <div class="space-x-6 hidden md:flex">
+        <a href="index.html" class="hover:text-blue-700 transition">Home</a>
+        <a href="about.html" class="hover:text-blue-700 transition">About</a>
+        <a href="ministries.html" class="hover:text-blue-700 transition">Ministries</a>
+        <a href="gallery.html" class="hover:text-blue-700 transition">Gallery</a>
+        <a href="events.html" class="hover:text-blue-700 transition">Events</a>
+        <a href="contact.html" class="hover:text-blue-700 transition">Contact</a>
       </div>
+
+      <!-- Hamburger Button (Mobile) -->
+      <button class="md:hidden text-gray-800 focus:outline-none" onclick="toggleMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
     </div>
 
-    <!-- Mobile Dropdown -->
-    <div id="menu" class="hidden md:hidden bg-gray-800 text-white px-4 pb-4">
-      <a href="index.html" class="block py-2 hover:text-yellow-400">Home</a>
-      <a href="about.html" class="block py-2 hover:text-yellow-400">About Us</a>
-      <a href="ministries.html" class="block py-2 hover:text-yellow-400">Ministries</a>
-      <a href="events.html" class="block py-2 hover:text-yellow-400">Upcoming Events</a>
-      <a href="gallery.html" class="block py-2 hover:text-yellow-400">Gallery</a>
-      <a href="contact.html" class="block py-2 hover:text-yellow-400">Contact</a>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+      <a href="index.html" class="block px-4 py-2 hover:bg-blue-100">Home</a>
+      <a href="about.html" class="block px-4 py-2 hover:bg-blue-100">About</a>
+      <a href="ministries.html" class="block px-4 py-2 hover:bg-blue-100">Ministries</a>
+      <a href="gallery.html" class="block px-4 py-2 hover:bg-blue-100">Gallery</a>
+      <a href="events.html" class="block px-4 py-2 hover:bg-blue-100">Events</a>
+      <a href="contact.html" class="block px-4 py-2 hover:bg-blue-100">Contact</a>
     </div>
   </nav>
 
-  <!-- Hero Section with Background -->
-  <section class="h-screen bg-cover bg-center flex items-center justify-center text-white relative"
-    style="background-image: url('church-bg.jpeg');">
-    <div class="absolute inset-0 bg-black opacity-50"></div> <!-- Dark overlay -->
+  <!-- Hero Section -->
+  <header class="relative h-[90vh] flex items-center justify-center bg-gray-900 text-white">
+    <!-- Background Image -->
+    <img src="church-bg.jpeg" alt="Church" class="absolute inset-0 w-full h-full object-cover opacity-70">
 
+    <!-- Overlay Text -->
     <div class="relative z-10 text-center px-6">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4">Welcome to St. Mary’s Jacobite Syrian Church</h1>
-      <p class="text-lg md:text-xl mb-6">A place of prayer, fellowship, and community</p>
-      <a href="about.html" class="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-full font-semibold">
-        Learn More
-      </a>
+      <h1 class="text-4xl md:text-6xl font-bold">Welcome to St. Mary’s Jacobite Syrian Church</h1>
+      <p class="mt-4 text-lg md:text-xl">A place of prayer, community, and faith</p>
+      <div class="mt-6 space-x-4">
+        <a href="about.html" class="bg-blue-700 text-white px-6 py-3 rounded-full hover:bg-blue-800 transition">Learn More</a>
+        <a href="donate.html" class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition">Donate</a>
+      </div>
     </div>
+  </header>
+
+  <!-- Welcome Section -->
+  <section class="max-w-6xl mx-auto py-16 px-6 text-center">
+    <h2 class="text-3xl font-bold text-blue-800">Our Mission</h2>
+    <p class="mt-4 text-lg">
+      At St. Mary’s Jacobite Syrian Church, we are dedicated to serving God and the community through 
+      prayer, fellowship, and outreach. We welcome everyone to join us in worship and spiritual growth.
+    </p>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white text-center py-4">
-    <p>&copy; 2025 St. Mary’s Jacobite Syrian Church | All Rights Reserved</p>
+  <footer class="bg-gray-900 text-gray-300 py-6 mt-10">
+    <div class="max-w-6xl mx-auto text-center">
+      <p>&copy; 2025 St. Mary’s Jacobite Syrian Church. All Rights Reserved.</p>
+    </div>
   </footer>
-
-  <script>
-    // Mobile Menu Toggle
-    const btn = document.getElementById("menu-btn");
-    const menu = document.getElementById("menu");
-    btn.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
-    });
-  </script>
 
 </body>
 </html>
