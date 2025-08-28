@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>St. Mary’s Jacobite Syrian Orthodox Church</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -15,103 +15,124 @@
 <body class="font-sans text-gray-800">
 
   <!-- Navbar -->
-  <nav class="bg-white shadow-md fixed w-full top-0 left-0 z-20">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="index.html" class="text-xl sm:text-2xl font-bold text-blue-800">St. Mary’s Church</a>
+  <nav class="bg-white shadow-md fixed w-full top-0 left-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center">
+          <img src="/Home/LOGO PNG.png" alt="St. Mary’s Church Logo" class="h-10 w-auto" />
+        </a>
 
-      <!-- Desktop Menu -->
-      <div class="space-x-6 hidden md:flex text-sm lg:text-base">
-        <a href="index.html" class="hover:text-blue-700 transition">Home</a>
-        <a href="about.html" class="hover:text-blue-700 transition">About</a>
-        <a href="ministries.html" class="hover:text-blue-700 transition">Ministries</a>
-        <a href="gallery.html" class="hover:text-blue-700 transition">Gallery</a>
-        <a href="events.html" class="hover:text-blue-700 transition">Events</a>
-        <a href="contact.html" class="hover:text-blue-700 transition">Contact</a>
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex space-x-8">
+          <a href="index.html" class="text-gray-700 hover:text-blue-700 font-medium">Home</a>
+          <a href="about.html" class="text-gray-700 hover:text-blue-700 font-medium">About</a>
+          <a href="ministries.html" class="text-gray-700 hover:text-blue-700 font-medium">Ministries</a>
+          <a href="gallery.html" class="text-gray-700 hover:text-blue-700 font-medium">Gallery</a>
+          <a href="events.html" class="text-gray-700 hover:text-blue-700 font-medium">Events</a>
+          <a href="contact.html" class="text-gray-700 hover:text-blue-700 font-medium">Contact</a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100"
+                aria-label="Toggle menu" onclick="toggleMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
       </div>
-
-      <!-- Hamburger Button (Mobile) -->
-      <button class="md:hidden text-gray-800 focus:outline-none" onclick="toggleMenu()">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-      <a href="index.html" class="block px-4 py-2 hover:bg-blue-100">Home</a>
-      <a href="about.html" class="block px-4 py-2 hover:bg-blue-100">About</a>
-      <a href="ministries.html" class="block px-4 py-2 hover:bg-blue-100">Ministries</a>
-      <a href="gallery.html" class="block px-4 py-2 hover:bg-blue-100">Gallery</a>
-      <a href="events.html" class="block px-4 py-2 hover:bg-blue-100">Events</a>
-      <a href="contact.html" class="block px-4 py-2 hover:bg-blue-100">Contact</a>
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow">
+      <a href="index.html" class="block px-4 py-2 hover:bg-blue-50">Home</a>
+      <a href="about.html" class="block px-4 py-2 hover:bg-blue-50">About</a>
+      <a href="ministries.html" class="block px-4 py-2 hover:bg-blue-50">Ministries</a>
+      <a href="gallery.html" class="block px-4 py-2 hover:bg-blue-50">Gallery</a>
+      <a href="events.html" class="block px-4 py-2 hover:bg-blue-50">Events</a>
+      <a href="contact.html" class="block px-4 py-2 hover:bg-blue-50">Contact</a>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <header class="relative h-[80vh] sm:h-[90vh] flex items-center justify-center bg-gray-900 text-white mt-14">
-    <img src="/Home/church-bg.jpeg" alt="Church" class="absolute inset-0 w-full h-full object-cover opacity-30">
+  <header class="relative mt-16 h-[80vh] sm:h-[90vh] flex items-center justify-center bg-gray-900 text-white">
+    <img src="/Home/church-bg.jpeg" alt="Church"
+         class="absolute inset-0 w-full h-full object-cover opacity-30">
+    <div class="absolute inset-0 bg-black/30"></div>
     <div class="relative z-10 text-center px-4 sm:px-6">
-      <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold">Welcome to St. Mary’s Jacobite Syrian Orthodox Church</h1>
-      <p class="mt-4 text-base sm:text-lg md:text-xl">A place of prayer, community, and faith</p>
+      <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold">
+        Welcome to St. Mary’s Jacobite Syrian Orthodox Church
+      </h1>
+      <p class="mt-4 text-base sm:text-lg md:text-xl">
+        A place of prayer, community, and faith
+      </p>
       <div class="mt-6 space-x-2 sm:space-x-4">
-        <a href="about.html" class="bg-blue-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-blue-800 transition">Learn More</a>
-        <a href="donate.html" class="bg-green-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-green-700 transition">Donate</a>
+        <a href="about.html"
+           class="inline-block bg-blue-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-blue-800 transition">
+          Learn More
+        </a>
+        <a href="donate.html"
+           class="inline-block bg-green-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-green-700 transition">
+          Donate
+        </a>
       </div>
     </div>
   </header>
 
   <!-- Our Mission -->
-  <div class="max-w-6xl mx-auto py-12 sm:py-16 px-4 sm:px-6 text-center">
+  <section class="max-w-6xl mx-auto py-12 sm:py-16 px-4 sm:px-6 text-center">
     <h2 class="text-2xl sm:text-3xl font-bold text-blue-800">Our Mission</h2>
-    <p class="text-gray-600 mt-3 text-sm sm:text-base md:text-lg">At St. Mary’s Jacobite Syrian Orthodox Church, we are dedicated to serving God and the community through 
+    <p class="text-gray-600 mt-3 text-sm sm:text-base md:text-lg">
+      At St. Mary’s Jacobite Syrian Orthodox Church, we are dedicated to serving God and the community through
       prayer, fellowship, and outreach. We welcome everyone to join us in worship and spiritual growth.
     </p>
-  </div>
+  </section>
 
   <!-- Cards Section -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 px-4 sm:px-6 max-w-6xl mx-auto">
+  <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 px-4 sm:px-6 max-w-6xl mx-auto">
     <!-- Card 1 -->
-    <a href="about.html" class="block p-6 sm:p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 hover:scale-105 text-center">
+    <a href="about.html"
+       class="block p-6 sm:p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 hover:scale-105 text-center">
       <div class="text-blue-700 mb-4 text-3xl">📖</div>
       <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-3">About Us</h3>
       <p class="text-gray-600 text-sm sm:text-base">Learn about the history and heritage of our church.</p>
     </a>
 
     <!-- Card 2 -->
-    <a href="prayer.html" class="block p-6 sm:p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 hover:scale-105 text-center">
+    <a href="prayer.html"
+       class="block p-6 sm:p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 hover:scale-105 text-center">
       <div class="text-blue-700 mb-4 text-3xl">⏰</div>
       <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-3">Prayer Timings</h3>
       <p class="text-gray-600 text-sm sm:text-base">Join us for Holy Qurbana and weekly prayer meetings.</p>
     </a>
 
     <!-- Card 3 -->
-    <a href="office.html" class="block p-6 sm:p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 hover:scale-105 text-center">
+    <a href="office.html"
+       class="block p-6 sm:p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 hover:scale-105 text-center">
       <div class="text-blue-700 mb-4 text-3xl">👥</div>
       <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-3">Present Office Bearers</h3>
       <p class="text-gray-600 text-sm sm:text-base">Meet our parish committee and spiritual leaders.</p>
     </a>
 
     <!-- Card 4 -->
-    <a href="events.html" class="block p-6 sm:p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 hover:scale-105 text-center">
+    <a href="events.html"
+       class="block p-6 sm:p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 hover:scale-105 text-center">
       <div class="text-blue-700 mb-4 text-3xl">📅</div>
       <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-3">Upcoming Events</h3>
       <p class="text-gray-600 text-sm sm:text-base">Stay updated with the latest church events and programs.</p>
     </a>
-  </div>
+  </section>
 
-  <!-- 🔔 Announcements -->
-  <div class="max-w-6xl mx-auto py-12 sm:py-16 px-4 sm:px-6">
+  <!-- Announcements -->
+  <section class="max-w-6xl mx-auto py-12 sm:py-16 px-4 sm:px-6">
     <h2 class="text-2xl sm:text-3xl font-bold text-red-700 text-center mb-6">🔔 Latest Announcements</h2>
 
-    <!-- List of announcements -->
     <div id="announcements-list" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-
       <!-- Announcement 1 (Newest) -->
-      <div class="announcement-item relative bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg shadow-md w-full max-w-sxl mx-auto">
-        <span class="absolute top-2 right-2 bg-red-600 text-white text-xs sm:text-sm font-bold px-2 py-1 rounded-full shadow">
-          🔥 New
-        </span>
+      <div class="relative bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg shadow-md">
+        <span class="absolute top-2 right-2 bg-red-600 text-white text-xs sm:text-sm font-bold px-2 py-1 rounded-full shadow">🔥 New</span>
         <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">Mother Mary Feast 🙏</h3>
         <p class="text-gray-600 mb-2 text-sm sm:text-base">📅 Date: September 1 - 7, 2025</p>
         <p class="text-gray-700 mb-4 text-sm sm:text-base">Join us for Novena prayers and Holy Qurbana every evening.</p>
@@ -120,10 +141,10 @@
 
       <!-- Announcement 2 (inactive as comment) -->
       <!--
-      <div class="announcement-item bg-blue-50 border-l-4 border-blue-400 p-6 rounded-lg shadow-md w-full max-w-sxl mx-auto">
-        <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">Mother Mary Feast 🙏</h3>
-        <p class="text-gray-600 mb-2 text-sm sm:text-base">📅 Date: September 1 - 7, 2025</p>
-        <p class="text-gray-700 text-sm sm:text-base">Join us for Novena prayers & Holy Qurbana every evening.</p>
+      <div class="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-lg shadow-md">
+        <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">Youth Meet 🎶</h3>
+        <p class="text-gray-600 mb-2 text-sm sm:text-base">📅 Date: October 15, 2025</p>
+        <p class="text-gray-700 text-sm sm:text-base">A day of prayer, worship, and fellowship for our youth.</p>
       </div>
       -->
     </div>
@@ -132,7 +153,7 @@
     <div id="no-announcement" class="hidden bg-gray-100 p-6 rounded-lg shadow text-center mt-6">
       <p class="text-gray-600 text-base sm:text-lg">📢 No announcements at the moment.</p>
     </div>
-  </div>
+  </section>
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-gray-300 py-6 mt-10 px-4 text-center text-sm sm:text-base">
