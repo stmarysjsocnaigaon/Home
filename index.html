@@ -3,81 +3,118 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>St. Mary’s Jacobite Syrian Orthodox Church</title>
+  <title>About Us - St. Mary’s Jacobite Syrian Church Naigaon</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    // Toggle mobile menu
-    function toggleMenu() {
-      document.getElementById("mobile-menu").classList.toggle("hidden");
-    }
-  </script>
 </head>
-<body class="font-sans text-gray-800">
+<body class="bg-gray-50 text-gray-800">
 
-  <!-- Navbar -->
-  <nav class="bg-white shadow-md fixed w-full top-0 left-0 z-20">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-      <a href="index.html" class="text-2xl font-bold text-blue-800">St. Mary’s Church</a>
-
-      <!-- Desktop Menu -->
-      <div class="space-x-6 hidden md:flex">
-        <a href="index.html" class="hover:text-blue-700 transition">Home</a>
-        <a href="about.html" class="hover:text-blue-700 transition">About</a>
-        <a href="ministries.html" class="hover:text-blue-700 transition">Ministries</a>
-        <a href="gallery.html" class="hover:text-blue-700 transition">Gallery</a>
-        <a href="events.html" class="hover:text-blue-700 transition">Events</a>
-        <a href="contact.html" class="hover:text-blue-700 transition">Contact</a>
-      </div>
-
-      <!-- Hamburger Button (Mobile) -->
-      <button class="md:hidden text-gray-800 focus:outline-none" onclick="toggleMenu()">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-      <a href="index.html" class="block px-4 py-2 hover:bg-blue-100">Home</a>
-      <a href="about.html" class="block px-4 py-2 hover:bg-blue-100">About</a>
-      <a href="ministries.html" class="block px-4 py-2 hover:bg-blue-100">Ministries</a>
-      <a href="gallery.html" class="block px-4 py-2 hover:bg-blue-100">Gallery</a>
-      <a href="events.html" class="block px-4 py-2 hover:bg-blue-100">Events</a>
-      <a href="contact.html" class="block px-4 py-2 hover:bg-blue-100">Contact</a>
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-blue-800">St. Mary’s Jacobite Syrian Church</h1>
+      <ul class="flex space-x-6 font-medium text-gray-700">
+        <li><a href="index.html" class="hover:text-blue-600">Home</a></li>
+        <li><a href="about.html" class="text-blue-600 font-semibold">About</a></li>
+        <li><a href="ministries.html" class="hover:text-blue-600">Ministries</a></li>
+        <li><a href="events.html" class="hover:text-blue-600">Events</a></li>
+        <li><a href="gallery.html" class="hover:text-blue-600">Gallery</a></li>
+        <li><a href="contact.html" class="hover:text-blue-600">Contact</a></li>
+      </ul>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <header class="relative h-[90vh] flex items-center justify-center bg-gray-900 text-white">
-    <!-- Background Image -->
-    <img src="church-bg.jpeg" alt="Church" class="absolute inset-0 w-full h-full object-cover opacity-70">
+  <section class="bg-blue-900 text-white text-center py-20 relative">
+    <img src="/Home/church-bg.jpeg" alt="Church Photo" class="absolute inset-0 w-full h-full object-cover opacity-30">
+    <div class="relative z-10">
+      <h2 class="text-4xl font-bold mb-4">About Our Church</h2>
+      <p class="text-lg max-w-3xl mx-auto">“With the abundant blessings of God Almighty, our parish continues to grow in faith, fellowship, and service.”</p>
+    </div>
+  </section>
 
-    <!-- Overlay Text -->
-    <div class="relative z-10 text-center px-6">
-      <h1 class="text-4xl md:text-6xl font-bold">Welcome to St. Mary’s Jacobite Syrian Church</h1>
-      <p class="mt-4 text-lg md:text-xl">A place of prayer, community, and faith</p>
-      <div class="mt-6 space-x-4">
-        <a href="about.html" class="bg-blue-700 text-white px-6 py-3 rounded-full hover:bg-blue-800 transition">Learn More</a>
-        <a href="donate.html" class="bg-green-600 text-white px-6 py-3 rounded-full hover:bg-green-700 transition">Donate</a>
+  <!-- History Section -->
+  <section class="max-w-6xl mx-auto py-16 px-6">
+    <h2 class="text-3xl font-bold text-blue-800 mb-8">Our History</h2>
+
+    <!-- Beginnings -->
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h3 class="text-2xl font-semibold text-blue-700 mb-2">Beginnings</h3>
+        <p class="text-lg leading-relaxed text-justify">
+          The history of “St. Mary’s Jacobite Syrian Church, Naigaon – Vasai” is connected to the history of 
+          “St. Thomas Syrian Church Congregation, Byculla, Mumbai” which was established in the year 1975. 
+          As the number of Jacobite Syrian Christian families increased, many members came and settled in 
+          Mira Road, Bhayandar, Naigaon, Vasai, Nallasopara and Virar. However, for Holy Qurbana and other 
+          spiritual needs, they depended on Byculla and Malad parishes.
+        </p>
+      </div>
+      <img src="images/early-congregation.jpg" alt="Early congregation" class="rounded-xl shadow-lg">
+    </div>
+
+    <!-- Foundation -->
+    <div class="grid md:grid-cols-2 gap-8 items-center mt-12">
+      <img src="/About/Foundation Stone blessing.jpeg" alt="Foundation stone blessing" class="rounded-xl shadow-lg">
+      <div>
+        <h3 class="text-2xl font-semibold text-blue-700 mb-2">Foundation of the Church</h3>
+        <p class="text-lg leading-relaxed text-justify">
+          A service center was setup and the first Holy Qurbana was conducted on 29th November,1987 
+          by Rev. Fr. Varghese Valayil.  
+          With growing members, Vasai was declared an independent center in 1998.  
+          Later, with the efforts of parishioners, land of 65 cents was donated by Mr. Antony John Pereira.  
+        </p>
       </div>
     </div>
-  </header>
 
-  <!-- Welcome Section -->
-  <section class="max-w-6xl mx-auto py-16 px-6 text-center">
-    <h2 class="text-3xl font-bold text-blue-800">Our Mission</h2>
-    <p class="mt-4 text-lg">
-      At St. Mary’s Jacobite Syrian Church, we are dedicated to serving God and the community through 
-      prayer, fellowship, and outreach. We welcome everyone to join us in worship and spiritual growth.
-    </p>
+    <!-- Growth -->
+    <div class="grid md:grid-cols-2 gap-8 items-center mt-12">
+      <div>
+        <h3 class="text-2xl font-semibold text-blue-700 mb-2">Growth of the Parish</h3>
+        <p class="text-lg leading-relaxed text-justify">
+          On 13th September, 1999, the foundation stone of the church was consecrated by H. G. Thomas Mor Themotheos.  
+          On 10th April, 2000, the Altar stone was blessed by H. H. Moran Mor Ignatius Zakka I, Patriarch of Antioch.  
+          The Holy Mooron Consecration of the new Church was conducted in June 2002.  
+          A library was started in 2002, which now has over 5000 books.  
+        </p>
+      </div>
+      <img src="/About/H.G. Thomas Mor Themotheos.jpeg" alt="Church consecration" class="rounded-xl shadow-lg">
+    </div>
+
+    <!-- Milestones -->
+    <div class="mt-12">
+      <h3 class="text-2xl font-semibold text-blue-700 mb-4">Major Milestones</h3>
+      <ul class="list-disc list-inside text-lg leading-relaxed space-y-2">
+        <li>First Holy Qurbana – 29th November, 1987</li>
+        <li>Foundation Stone consecrated – 13th September, 1999</li>
+        <li>Altar Stone blessed by Patriarch Ignatius Zakka I – April 2000</li>
+        <li>Holy Mooron Consecration – June 2002</li>
+        <li>Fr. Abraham Padanilathu Memorial Library inaugurated – September 2002</li>
+        <li>Service Center at Nallasopara established – January 2001</li>
+        <li>Consecration of Nallasopara center – June 2008</li>
+        <li>Kurishumthotti dedicated to Mother Mary – September 2005</li>
+      </ul>
+      <img src="images/library.jpg" alt="Church Library" class="rounded-xl shadow-lg mt-6 mx-auto">
+    </div>
+
+    <!-- Present -->
+    <div class="grid md:grid-cols-2 gap-8 items-center mt-12">
+      <div>
+        <h3 class="text-2xl font-semibold text-blue-700 mb-2">Present</h3>
+        <p class="text-lg leading-relaxed text-justify">
+          Today, the parish has more than 100 families.  
+          Services are held every Sunday at St. Mary’s, Naigaon, and at St. George Service Center, Nallasopara.  
+          Sunday School, Prayer meetings, Parish Youth Association and Martha Mariam Vanitha Samajam are actively functioning.  
+          Our church is also blessed with its own cemetery, the only Jacobite Church in Mumbai to have one.  
+          We look forward to expanding our charitable work with new initiatives.  
+        </p>
+      </div>
+      <img src="/Home/church-bg.jpeg" alt="Present day church" class="rounded-xl shadow-lg">
+    </div>
+
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-300 py-6 mt-10">
-    <div class="max-w-6xl mx-auto text-center">
-      <p>&copy; 2025 St. Mary’s Jacobite Syrian Church. All Rights Reserved.</p>
-    </div>
+  <footer class="bg-blue-900 text-white py-6 text-center">
+    <p>&copy; 2025 St. Mary’s Jacobite Syrian Church, Naigaon. All Rights Reserved.</p>
   </footer>
 
 </body>
