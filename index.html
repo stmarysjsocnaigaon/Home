@@ -130,35 +130,70 @@
     </a>
   </section>
 
-  <!-- Announcements -->
-  <section class="max-w-6xl mx-auto py-12 sm:py-16 px-4 sm:px-6">
-    <h2 class="text-2xl sm:text-3xl font-bold text-red-700 text-center mb-6">🔔 Latest Announcements</h2>
+<!-- Announcements -->
+<section class="max-w-6xl mx-auto py-12 sm:py-16 px-4 sm:px-6">
+  <h2 class="text-2xl sm:text-3xl font-bold text-red-700 text-center mb-6">🔔 Latest Announcements</h2>
 
-    <div id="announcements-list" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-      <!-- Announcement 1 (Newest) -->
-      <div class="relative bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg shadow-md">
-        <span class="absolute top-2 right-2 bg-red-600 text-white text-xs sm:text-sm font-bold px-2 py-1 rounded-full shadow">🔥 New</span>
-        <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">Mother Mary Feast 🙏</h3>
-        <p class="text-gray-600 mb-2 text-sm sm:text-base">📅 Date: September 1 - 7, 2025</p>
-        <p class="text-gray-700 mb-4 text-sm sm:text-base">Join us for Novena prayers and Holy Qurbana every evening.</p>
-        <img src="/Home/poster.jpeg" alt="Poster" class="w-full h-auto max-h-80 object-contain rounded-lg shadow">
-      </div>
-
-      <!-- Announcement 2 (inactive as comment) -->
-      <!--
-      <div class="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-lg shadow-md">
-        <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">Youth Meet 🎶</h3>
-        <p class="text-gray-600 mb-2 text-sm sm:text-base">📅 Date: October 15, 2025</p>
-        <p class="text-gray-700 text-sm sm:text-base">A day of prayer, worship, and fellowship for our youth.</p>
-      </div>
-      -->
+  <!-- Announcements List -->
+  <div id="announcements-list" class="flex flex-col items-center gap-6">
+    
+    <!-- Announcement 1 -->
+    <div class="announcement opacity-0 translate-y-4 bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg shadow-md w-full max-w-2xl"
+         data-date="2025-09-07">
+      <span class="absolute top-2 right-2 bg-red-600 text-white text-xs sm:text-sm font-bold px-2 py-1 rounded-full shadow">🔥 New</span>
+      <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">Mother Mary Feast 🙏</h3>
+      <p class="text-gray-600 mb-2 text-sm sm:text-base">📅 Date: September 1 - 7, 2025</p>
+      <p class="text-gray-700 mb-4 text-sm sm:text-base">Join us for Novena prayers and Holy Qurbana every evening.</p>
+      <img src="/Home/poster.jpeg" alt="Poster" class="w-full h-auto max-h-80 object-contain rounded-lg shadow">
     </div>
 
-    <!-- If no announcements -->
-    <div id="no-announcement" class="hidden bg-gray-100 p-6 rounded-lg shadow text-center mt-6">
-      <p class="text-gray-600 text-base sm:text-lg">📢 No announcements at the moment.</p>
-    </div>
-  </section>
+    <!-- Announcement 2
+    <div class="announcement opacity-0 translate-y-4 bg-blue-50 border-l-4 border-blue-400 p-6 rounded-lg shadow-md w-full max-w-2xl"
+         data-date="2025-15-10">
+      <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">Youth Meet 🎶</h3>
+      <p class="text-gray-600 mb-2 text-sm sm:text-base">📅 Date: October 15, 2025</p>
+      <p class="text-gray-700 text-sm sm:text-base">A day of prayer, worship, and fellowship for our youth.</p>
+    </div> -->
+
+  </div>
+
+  <!-- If no announcements -->
+  <div id="no-announcement" class="hidden bg-gray-100 p-6 rounded-lg shadow text-center mt-6 max-w-2xl mx-auto">
+    <p class="text-gray-600 text-base sm:text-lg">📢 No announcements at the moment.</p>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const list = document.getElementById("announcements-list");
+    const fallback = document.getElementById("no-announcement");
+
+    // Get only actual announcement elements
+    let announcements = Array.from(list.children).filter(el => el.nodeType === 1);
+
+    if (announcements.length === 0) {
+      fallback.classList.remove("hidden");
+    } else {
+      // Sort announcements by date (newest first)
+      announcements.sort((a, b) => {
+        return new Date(b.dataset.date) - new Date(a.dataset.date);
+      });
+
+      // Clear old order & re-append sorted announcements
+      list.innerHTML = "";
+      announcements.forEach((el, index) => {
+        list.appendChild(el);
+        // Animate fade-in with staggered delay
+        setTimeout(() => {
+          el.classList.remove("opacity-0", "translate-y-4");
+          el.classList.add("transition", "duration-700", "ease-out", "opacity-100", "translate-y-0");
+        }, 200 * index);
+      });
+    }
+  });
+</script>
+
+
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-gray-300 py-6 mt-10 px-4 text-center text-sm sm:text-base">
