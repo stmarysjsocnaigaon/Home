@@ -6,9 +6,35 @@
   <title>St. Mary's Jacobite Syrian Orthodox Church</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Toggle mobile menu
     function toggleMenu() {
       document.getElementById("mobile-menu").classList.toggle("hidden");
+    }
+
+    function openOfficeModal() {
+      document.getElementById('officeModal').classList.remove('hidden');
+      document.getElementById('officeModal').classList.add('flex');
+    }
+
+    function closeOfficeModal() {
+      document.getElementById('officeModal').classList.remove('flex');
+      document.getElementById('officeModal').classList.add('hidden');
+    }
+
+    function openDonateModal() {
+      document.getElementById('donateModal').classList.remove('hidden');
+      document.getElementById('donateModal').classList.add('flex');
+    }
+
+    function closeDonateModal() {
+      document.getElementById('donateModal').classList.remove('flex');
+      document.getElementById('donateModal').classList.add('hidden');
+    }
+
+    function copyText(id, msg) {
+      const el = document.getElementById(id);
+      navigator.clipboard.writeText(el.textContent).then(() => {
+        alert(msg);
+      });
     }
   </script>
 </head>
@@ -18,7 +44,6 @@
   <nav class="bg-white shadow-md fixed w-full top-0 left-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
-        <!-- Logo -->
         <div class="flex items-center space-x-3">
           <a href="index.html" class="flex items-center">
             <img src="/Home/LOGO PNG.png" alt="Church Logo" class="h-12 w-auto">
@@ -27,8 +52,6 @@
             </span>
           </a>
         </div>
-
-        <!-- Desktop Menu -->
         <div class="hidden md:flex space-x-8">
           <a href="index.html" class="text-gray-700 hover:text-blue-700 font-medium">Home</a>
           <a href="https://stmarysjsocnaigaon.github.io/About-Us/" class="text-gray-700 hover:text-blue-700 font-medium">About</a>
@@ -37,10 +60,7 @@
           <a href="https://stmarysjsocnaigaon.github.io/Events/" class="text-gray-700 hover:text-blue-700 font-medium">Events</a>
           <a href="https://stmarysjsocnaigaon.github.io/Contact/" class="text-gray-700 hover:text-blue-700 font-medium">Contact</a>
         </div>
-
-        <!-- Mobile Hamburger -->
-        <button class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100"
-                aria-label="Toggle menu" onclick="toggleMenu()">
+        <button class="md:hidden p-2 rounded-md text-gray-700 hover:bg-gray-100" onclick="toggleMenu()">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -49,8 +69,6 @@
         </button>
       </div>
     </div>
-
-    <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-white shadow">
       <a href="index.html" class="block px-4 py-2 hover:bg-blue-50">Home</a>
       <a href="https://stmarysjsocnaigaon.github.io/About-Us/" class="block px-4 py-2 hover:bg-blue-50">About</a>
@@ -79,7 +97,6 @@
            class="inline-block bg-blue-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-blue-800 transition">
           Learn More
         </a>
-        <!-- Open Donate Modal (same-page) -->
         <button onclick="openDonateModal()"
            class="inline-block bg-green-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full hover:bg-green-700 transition">
           Donate
@@ -99,7 +116,6 @@
 
   <!-- Cards Section -->
   <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 px-4 sm:px-6 max-w-6xl mx-auto">
-    <!-- Card 1 -->
     <a href="https://stmarysjsocnaigaon.github.io/About-Us/"
        class="block p-6 sm:p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 hover:scale-105 text-center">
       <div class="text-blue-700 mb-4 text-3xl">📖</div>
@@ -107,7 +123,6 @@
       <p class="text-gray-600 text-sm sm:text-base">Learn about the history and heritage of our church.</p>
     </a>
 
-    <!-- Card 2: Prayer Timings -->
     <a href="https://stmarysjsocnaigaon.github.io/Events/#prayer-timings"
        class="block p-6 sm:p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 hover:scale-105 text-center">
       <div class="text-blue-700 mb-4 text-3xl">⏰</div>
@@ -115,15 +130,13 @@
       <p class="text-gray-600 text-sm sm:text-base">Join us for Holy Qurbana and weekly prayer meetings.</p>
     </a>
 
-    <!-- Card 3 -->
-    <a href="office.html"
-       class="block p-6 sm:p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 hover:scale-105 text-center">
+    <a onclick="openOfficeModal()"
+       class="cursor-pointer block p-6 sm:p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 hover:scale-105 text-center">
       <div class="text-blue-700 mb-4 text-3xl">👥</div>
       <h3 class="text-xl sm:text-2xl font-semibold text-blue-700 mb-3">Present Office Bearers</h3>
       <p class="text-gray-600 text-sm sm:text-base">Meet our parish committee and spiritual leaders.</p>
     </a>
 
-    <!-- Card 4 -->
     <a href="https://stmarysjsocnaigaon.github.io/Events/"
        class="block p-6 sm:p-8 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 hover:scale-105 text-center">
       <div class="text-blue-700 mb-4 text-3xl">📅</div>
@@ -132,59 +145,90 @@
     </a>
   </section>
 
+  <!-- Present Office Bearers Modal -->
+  <div id="officeModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 overflow-auto p-4">
+    <div class="bg-white rounded-3xl shadow-2xl w-full max-w-6xl mx-auto p-6 relative">
+      <button onclick="closeOfficeModal()" class="absolute top-3 right-3 text-gray-500 hover:text-red-600 text-2xl font-bold">✖</button>
+      <h2 class="text-3xl font-bold text-blue-700 mb-8 text-center">Present Office Bearers</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+          <img src="/OfficeBearers/president.jpg" alt="Fr Eldhon Edappattu" class="w-full h-48 object-cover rounded-t-2xl">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-blue-700 mb-1">Fr Eldhon Edappattu</h3>
+            <p class="text-gray-600 text-sm">President</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+          <img src="/OfficeBearers/vice-president.jpg" alt="K V John" class="w-full h-48 object-cover rounded-t-2xl">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-blue-700 mb-1">K V John</h3>
+            <p class="text-gray-600 text-sm">Vice President</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+          <img src="/OfficeBearers/secretary.jpg" alt="Rohit Raju" class="w-full h-48 object-cover rounded-t-2xl">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-blue-700 mb-1">Rohit Raju</h3>
+            <p class="text-gray-600 text-sm">Secretary</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+          <img src="/OfficeBearers/treasurer.jpg" alt="Bindu Biju" class="w-full h-48 object-cover rounded-t-2xl">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-blue-700 mb-1">Bindu Biju</h3>
+            <p class="text-gray-600 text-sm">Treasurer</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+          <img src="/OfficeBearers/working-vp.jpg" alt="Shaju P S" class="w-full h-48 object-cover rounded-t-2xl">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-blue-700 mb-1">Shaju P S</h3>
+            <p class="text-gray-600 text-sm">Working Vice President</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+          <img src="/OfficeBearers/joint-secretary.jpg" alt="P M Joy" class="w-full h-48 object-cover rounded-t-2xl">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-blue-700 mb-1">P M Joy</h3>
+            <p class="text-gray-600 text-sm">Joint Secretary</p>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden text-center transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+          <img src="/OfficeBearers/joint-treasurer.jpg" alt="Reji C George" class="w-full h-48 object-cover rounded-t-2xl">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-blue-700 mb-1">Reji C George</h3>
+            <p class="text-gray-600 text-sm">Joint Treasurer</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <!-- Announcements Section -->
   <section class="max-w-6xl mx-auto py-12 sm:py-16 px-4 sm:px-6">
     <h2 class="text-2xl sm:text-3xl font-bold text-red-700 text-center mb-6">🔔 Latest Announcements</h2>
-
     <div id="announcements-list" class="flex flex-col items-center gap-6">
-      <!-- Example Announcement -->
       <div class="announcement opacity-0 translate-y-4 bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg shadow-md w-full max-w-2xl relative"
            data-date="2025-09-07">
         <span class="absolute top-2 right-2 bg-red-600 text-white text-xs sm:text-sm font-bold px-2 py-1 rounded-full shadow">🔥 New</span>
         <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">Mother Mary Feast 🙏</h3>
-        <p class="text-gray-600 mb-2 text-sm sm:text-base">📅 Date: September 1 - 7, 2025</p>
+        <p class="text-gray-600 mb-2 text-sm sm:text-base">📅 Date: Auguet 31 & September 1 - 7, 2025</p>
         <p class="text-gray-700 mb-4 text-sm sm:text-base">Join us for Novena prayers and Holy Qurbana every evening.</p>
         <img src="/Home/poster.jpeg" alt="Poster" class="w-full h-auto max-h-80 object-contain rounded-lg shadow">
       </div>
-
-      <div class="announcement opacity-0 translate-y-4 bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg shadow-md w-full max-w-2xl relative"
-           data-date="2025-09-07">
-        <span class="absolute top-2 right-2 bg-red-600 text-white text-xs sm:text-sm font-bold px-2 py-1 rounded-full shadow">🔥 New</span>
-        <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">Mother Mary Feast - Day1🙏</h3>
-        <p class="text-gray-600 mb-2 text-sm sm:text-base">📅 Date: August 31, 2025</p>
-        <p class="text-gray-700 mb-4 text-sm sm:text-base">Join us for Holy Qurbana & Evening Gospel Message.</p>
-        <img src="/Home/IMG-20250830-WA0005.jpg" alt="Poster" class="w-full h-auto max-h-80 object-contain rounded-lg shadow">
-      </div>
     </div>
-
     <div id="no-announcement" class="hidden bg-gray-100 p-6 rounded-lg shadow text-center mt-6 max-w-2xl mx-auto">
       <p class="text-gray-600 text-base sm:text-lg">📢 No announcements at the moment.</p>
     </div>
   </section>
-
-  <script>
-    // Announcements: sort by data-date desc and animate in
-    document.addEventListener("DOMContentLoaded", () => {
-      const list = document.getElementById("announcements-list");
-      const fallback = document.getElementById("no-announcement");
-
-      let announcements = Array.from(list.children).filter(el => el.nodeType === 1);
-
-      if (announcements.length === 0) {
-        fallback.classList.remove("hidden");
-      } else {
-        announcements.sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date));
-        list.innerHTML = "";
-        announcements.forEach((el, index) => {
-          list.appendChild(el);
-          setTimeout(() => {
-            el.classList.remove("opacity-0", "translate-y-4");
-            el.classList.add("transition", "duration-700", "ease-out", "opacity-100", "translate-y-0");
-          }, 180 * index);
-        });
-      }
-    });
-  </script>
 
   <!-- Footer -->
   <footer class="bg-gray-900 text-gray-300 py-6 mt-10 px-4 text-center text-sm sm:text-base">
@@ -192,119 +236,6 @@
       <p>&copy; 2025 St. Mary's Jacobite Syrian Orthodox Church. All Rights Reserved.</p>
     </div>
   </footer>
-
-  <!-- Donate Modal (same-page popup) -->
-  <div id="donateModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-    <div class="bg-white rounded-2xl shadow-lg w-full max-w-lg mx-4 sm:mx-0 sm:w-[90%] md:w-[60%] lg:w-[40%] p-6 relative overflow-y-auto max-h-[90vh]">
-      <!-- Close Button -->
-      <button id="donate-close" onclick="closeDonateModal()" class="absolute top-3 right-3 text-gray-500 hover:text-red-600 text-xl">
-        ✖
-      </button>
-
-      <h2 class="text-2xl sm:text-3xl font-bold text-green-700 mb-4 text-center">🙏 Support Our Church</h2>
-      <p class="text-gray-600 mb-4 text-center">You can donate via Google Pay, UPI, or Bank Transfer</p>
-
-      <!-- QR -->
-      <div class="flex justify-center mb-4">
-        <img src="/Home/qr.jpeg" alt="Google Pay QR" class="w-48 sm:w-60 h-auto shadow-md rounded-lg">
-      </div>
-      <p class="text-gray-700 mb-4 text-center text-sm sm:text-base">
-        📌 Scan with <strong>Google Pay / PhonePe / Paytm / BHIM</strong>
-      </p>
-
-      <!-- UPI Payment -->
-      <div class="mb-4 text-center">
-        <p class="text-lg font-semibold text-blue-700">UPI ID:</p>
-        <p id="upi-id" class="text-gray-800 break-all">stmarysjsc1@fbl</p>
-        <div class="flex justify-center gap-3 mt-3 flex-wrap">
-          <a href="upi://pay?pa=stmarysjsc1@fbl&pn=St+Marys+Jacobite+Syrian+Church&cu=INR"
-             class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
-            Pay with Google Pay
-          </a>
-          <button onclick="copyText('upi-id', '✅ UPI ID copied!')"
-                  class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-            Copy UPI ID
-          </button>
-        </div>
-      </div>
-
-      <!-- Bank Details -->
-      <div class="bg-gray-50 p-4 rounded-lg border text-left text-sm sm:text-base">
-        <h3 class="text-lg font-bold text-gray-700 mb-2">Bank Account Details</h3>
-        <p><strong>Account Name:</strong> St. Mary's Jacobite Syrian Church</p>
-        <p><strong>Account No:</strong> <span id="account-no">15440100028167</span></p>
-        <p><strong>IFSC:</strong> <span id="ifsc">FDRL0001544</span></p>
-        <p><strong>Bank:</strong> Federal Bank, Vasai</p>
-
-        <!-- Copy Buttons -->
-        <div class="mt-3 flex flex-col sm:flex-row sm:items-center sm:gap-3 gap-3">
-          <button onclick="copyText('account-no', '✅ Account number copied!')"
-                  class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-            Copy Account Number
-          </button>
-          <button onclick="copyText('ifsc', '✅ IFSC copied!')"
-                  class="flex-1 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-            Copy IFSC
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Toast Notification -->
-  <div id="toast" class="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-4 py-2 rounded-lg shadow-lg hidden z-50">
-    ✅ Copied!
-  </div>
-
-  <!-- JS: modal behavior, copy + toast -->
-  <script>
-    // Open / Close modal
-    function openDonateModal() {
-      const modal = document.getElementById('donateModal');
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      // trap focus? minimal: focus close button
-      document.getElementById('donate-close').focus();
-    }
-    function closeDonateModal() {
-      const modal = document.getElementById('donateModal');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
-
-    // Close when clicking outside content
-    document.getElementById('donateModal').addEventListener('click', function(e) {
-      if (e.target === this) closeDonateModal();
-    });
-
-    // Close on ESC
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        const modal = document.getElementById('donateModal');
-        if (!modal.classList.contains('hidden')) closeDonateModal();
-      }
-    });
-
-    // Copy helper + toast
-    function copyText(elementId, successMessage = '✅ Copied!') {
-      const txt = document.getElementById(elementId).innerText.trim();
-      navigator.clipboard.writeText(txt).then(() => {
-        showToast(successMessage, 'bg-green-600');
-      }).catch(() => {
-        showToast('❌ Failed to copy', 'bg-red-600');
-      });
-    }
-
-    function showToast(message = '✅ Copied!', bgClass = 'bg-green-600') {
-      const toast = document.getElementById('toast');
-      toast.innerText = message;
-      toast.className = `fixed bottom-5 left-1/2 transform -translate-x-1/2 ${bgClass} text-white px-4 py-2 rounded-lg shadow-lg z-50`;
-      toast.classList.remove('hidden');
-      setTimeout(() => {
-        toast.classList.add('hidden');
-      }, 2200);
-    }
-  </script>
 
 </body>
 </html>
