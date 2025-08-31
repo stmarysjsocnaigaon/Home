@@ -257,18 +257,15 @@ function showToast(message='✅ Copied!', bgClass='bg-green-600'){
 </footer>
 
 <style>
-  /* Pulse animation (only once) */
   @keyframes pulse-once {
     0%, 100% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.2); opacity: 0.7; }
   }
-  .pulse-once {
-    animation: pulse-once 0.8s ease-in-out;
-  }
+  .pulse-once { animation: pulse-once 0.8s ease-in-out; }
 </style>
 
 <script>
-  const counterKey = "stmarys-naigaon"; // unique key for your site
+  const counterKey = "stmarys-naigaon"; 
   const countEl = document.getElementById('visitor-count');
   const eyeEl = document.getElementById('eye-icon');
 
@@ -281,10 +278,10 @@ function showToast(message='✅ Copied!', bgClass='bg-green-600'){
     try {
       let url;
       if (!localStorage.getItem("visited")) {
-        url = `https://api.countapi.xyz/hit/${counterKey}/visits`;
+        url = `https://api.allorigins.win/raw?url=https://api.countapi.xyz/hit/${counterKey}/visits`;
         localStorage.setItem("visited", "true");
       } else {
-        url = `https://api.countapi.xyz/get/${counterKey}/visits`;
+        url = `https://api.allorigins.win/raw?url=https://api.countapi.xyz/get/${counterKey}/visits`;
       }
 
       const res = await fetch(url);
@@ -295,11 +292,10 @@ function showToast(message='✅ Copied!', bgClass='bg-green-600'){
         animateOnce(countEl);
         animateOnce(eyeEl);
       } else {
-        countEl.innerText = "N/A"; // fallback
+        countEl.innerText = "Error";
       }
     } catch (err) {
-      console.error("Visitor counter error:", err);
-      countEl.innerText = "Offline"; // fallback
+      countEl.innerText = "Offline";
     }
   }
 
