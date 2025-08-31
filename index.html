@@ -237,7 +237,7 @@ function showToast(message='✅ Copied!', bgClass='bg-green-600'){
       <!-- Eye Icon -->
       <svg xmlns="http://www.w3.org/2000/svg" 
            fill="none" viewBox="0 0 24 24" stroke="currentColor" 
-           class="w-6 h-6 text-gray-300" id="eye-icon">
+           class="w-6 h-6 text-gray-300">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
               d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
@@ -247,53 +247,22 @@ function showToast(message='✅ Copied!', bgClass='bg-green-600'){
 
       <span class="text-gray-300 text-sm sm:text-base">Unique Visitors:</span>
 
-      <!-- Badge -->
-      <span id="visitor-count" 
-            class="bg-blue-600 text-white px-3 py-1 rounded-full font-semibold shadow-md text-sm sm:text-base">
-        Loading...
-      </span>
+      <!-- Hits.sh Badge -->
+      <img id="visitor-badge"
+           src="https://hits.sh/stmarysjsocnaigaon.github.io.svg?style=flat-square&label=Visitors&color=blue&view=unique" 
+           alt="Unique Visitors" 
+           class="rounded-lg shadow-md h-6 sm:h-7 transition-transform duration-500"/>
     </div>
   </div>
 </footer>
 
-<style>
-  @keyframes pulse-once {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.2); opacity: 0.7; }
-  }
-  .pulse-once { animation: pulse-once 0.8s ease-in-out; }
-</style>
-
 <script>
-  const countEl = document.getElementById('visitor-count');
-  const eyeEl = document.getElementById('eye-icon');
-
-  function animateOnce(el) {
-    el.classList.add("pulse-once");
-    setTimeout(() => el.classList.remove("pulse-once"), 800);
-  }
-
-  async function updateVisitorCount() {
-    try {
-      // "unique=1" makes hits.sh count only unique visitors
-      const res = await fetch("https://hits.sh/stmarysjsocnaigaon.github.io.svg?view=unique&style=flat");
-      const text = await res.text();
-
-      const match = text.match(/>([0-9]+)</);
-      if (match) {
-        countEl.innerText = match[1];
-        animateOnce(countEl);
-        animateOnce(eyeEl);
-      } else {
-        countEl.innerText = "N/A";
-      }
-    } catch (err) {
-      console.error(err);
-      countEl.innerText = "Offline";
-    }
-  }
-
-  updateVisitorCount();
+  // Add a pulse animation effect when badge loads
+  const badge = document.getElementById("visitor-badge");
+  badge.addEventListener("load", () => {
+    badge.classList.add("scale-125");
+    setTimeout(() => badge.classList.remove("scale-125"), 500);
+  });
 </script>
 </body>
 </html>
