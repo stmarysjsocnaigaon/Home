@@ -265,7 +265,6 @@ function showToast(message='✅ Copied!', bgClass='bg-green-600'){
 </style>
 
 <script>
-  const counterKey = "stmarys-naigaon"; 
   const countEl = document.getElementById('visitor-count');
   const eyeEl = document.getElementById('eye-icon');
 
@@ -274,32 +273,17 @@ function showToast(message='✅ Copied!', bgClass='bg-green-600'){
     setTimeout(() => el.classList.remove("pulse-once"), 800);
   }
 
-  async function updateVisitorCount() {
-    try {
-      let url;
-      if (!localStorage.getItem("visited")) {
-        url = `https://api.allorigins.win/raw?url=https://api.countapi.xyz/hit/${counterKey}/visits`;
-        localStorage.setItem("visited", "true");
-      } else {
-        url = `https://api.allorigins.win/raw?url=https://api.countapi.xyz/get/${counterKey}/visits`;
-      }
+  // --- Local visitor counter ---
+  let visitorCount = localStorage.getItem("visitorCount");
 
-      const res = await fetch(url);
-      const data = await res.json();
-
-      if (data && data.value !== undefined) {
-        countEl.innerText = data.value;
-        animateOnce(countEl);
-        animateOnce(eyeEl);
-      } else {
-        countEl.innerText = "Error";
-      }
-    } catch (err) {
-      countEl.innerText = "Offline";
-    }
+  if (!visitorCount) {
+    visitorCount = 1;
+    localStorage.setItem("visitorCount", visitorCount);
   }
 
-  updateVisitorCount();
+  countEl.innerText = visitorCount;
+  animateOnce(countEl);
+  animateOnce(eyeEl);
 </script>
 </body>
 </html>
