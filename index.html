@@ -229,12 +229,75 @@ function showToast(message='✅ Copied!', bgClass='bg-green-600'){
 </script>
 
 <!-- Footer -->
-<footer class="bg-gray-900 text-gray-300 py-6 mt-10 px-4 text-center text-sm sm:text-base">
-  <div class="max-w-6xl mx-auto">
-    <p>&copy; 2025 St. Mary's Jacobite Syrian Orthodox Church. All Rights Reserved.</p>
-    <p class="mt-1 text-gray-400 text-xs sm:text-sm">Designed with ❤️ using TailwindCSS</p>
+<footer class="bg-gray-900 text-white text-center py-6">
+  <p class="text-lg">© 2025 St. Mary’s Jacobite Syrian Orthodox Church</p>
+  
+  <div class="mt-3 flex justify-center items-center space-x-2">
+    <!-- Eye Icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" 
+         fill="none" viewBox="0 0 24 24" stroke="currentColor" 
+         class="w-6 h-6 text-gray-300" id="eye-icon">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 
+               9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+    </svg>
+
+    <span class="text-gray-300">Visitor Count:</span>
+
+    <!-- Badge -->
+    <span id="visitor-count" 
+          class="bg-blue-600 text-white px-3 py-1 rounded-full font-semibold shadow-md">
+      Loading...
+    </span>
   </div>
 </footer>
+
+<style>
+  /* Pulse animation (only once) */
+  @keyframes pulse-once {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+  }
+  .pulse-once {
+    animation: pulse-once 0.8s ease-in-out;
+  }
+</style>
+
+<script>
+  const counterKey = "stmarys-naigaon"; // unique key for your site
+
+  function animateOnce(el) {
+    el.classList.add("pulse-once");
+    setTimeout(() => el.classList.remove("pulse-once"), 800); // remove after animation
+  }
+
+  if (!localStorage.getItem("visited")) {
+    // First-time visitor → increase counter
+    fetch(`https://api.countapi.xyz/hit/${counterKey}/visits`)
+      .then(res => res.json())
+      .then(res => {
+        const countEl = document.getElementById('visitor-count');
+        const eyeEl = document.getElementById('eye-icon');
+        countEl.innerText = res.value;
+        animateOnce(countEl);
+        animateOnce(eyeEl);
+      });
+    localStorage.setItem("visited", "true");
+  } else {
+    // Returning visitor → just fetch current count
+    fetch(`https://api.countapi.xyz/get/${counterKey}/visits`)
+      .then(res => res.json())
+      .then(res => {
+        const countEl = document.getElementById('visitor-count');
+        const eyeEl = document.getElementById('eye-icon');
+        countEl.innerText = res.value;
+        animateOnce(countEl);
+        animateOnce(eyeEl);
+      });
+  }
+</script>
 
 </body>
 </html>
