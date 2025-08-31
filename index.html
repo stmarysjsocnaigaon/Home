@@ -245,7 +245,7 @@ function showToast(message='✅ Copied!', bgClass='bg-green-600'){
                  9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
       </svg>
 
-      <span class="text-gray-300 text-sm sm:text-base">Visitor Count:</span>
+      <span class="text-gray-300 text-sm sm:text-base">Unique Visitors:</span>
 
       <!-- Badge -->
       <span id="visitor-count" 
@@ -273,17 +273,27 @@ function showToast(message='✅ Copied!', bgClass='bg-green-600'){
     setTimeout(() => el.classList.remove("pulse-once"), 800);
   }
 
-  // --- Local visitor counter ---
-  let visitorCount = localStorage.getItem("visitorCount");
+  async function updateVisitorCount() {
+    try {
+      // "unique=1" makes hits.sh count only unique visitors
+      const res = await fetch("https://hits.sh/stmarysjsocnaigaon.github.io.svg?view=unique&style=flat");
+      const text = await res.text();
 
-  if (!visitorCount) {
-    visitorCount = 1;
-    localStorage.setItem("visitorCount", visitorCount);
+      const match = text.match(/>([0-9]+)</);
+      if (match) {
+        countEl.innerText = match[1];
+        animateOnce(countEl);
+        animateOnce(eyeEl);
+      } else {
+        countEl.innerText = "N/A";
+      }
+    } catch (err) {
+      console.error(err);
+      countEl.innerText = "Offline";
+    }
   }
 
-  countEl.innerText = visitorCount;
-  animateOnce(countEl);
-  animateOnce(eyeEl);
+  updateVisitorCount();
 </script>
 </body>
 </html>
