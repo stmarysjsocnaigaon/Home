@@ -119,25 +119,24 @@
 <!-- Announcements -->
 <section class="max-w-6xl mx-auto py-12 sm:py-16 px-4 sm:px-6">
   <h2 class="text-2xl sm:text-3xl font-bold text-red-700 text-center mb-6">🔔 Latest Announcements</h2>
+
+  <!-- Announcements list -->
   <div id="announcements-list" class="flex flex-col items-center gap-6">
+    <!-- Add announcements here -->
+    <!-- Example announcement -->
+    <!--
     <div class="announcement opacity-0 translate-y-4 bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg shadow-md w-full max-w-2xl relative" data-date="2025-09-07">
       <span class="absolute top-2 right-2 bg-red-600 text-white text-xs sm:text-sm font-bold px-2 py-1 rounded-full shadow">🔥 New</span>
       <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">Sunday's School Diocese Level Competition</h3>
       <p class="text-gray-600 mb-2 text-sm sm:text-base">📅 Date: September 13, 2025</p>
       <p class="text-gray-700 mb-4 text-sm sm:text-base">Venue:- Mulund Church</p>
-      <!-- <img src="" alt="Poster" class="w-full h-auto max-h-80 object-contain rounded-lg shadow">-->
     </div>
-
-   <!-- <div class="announcement opacity-0 translate-y-4 bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg shadow-md w-full max-w-2xl relative" data-date="2025-09-07">
-      <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">Mother Mary Feast 🙏</h3>
-      <p class="text-gray-600 mb-2 text-sm sm:text-base">📅 Date: August 31 & September 1 - 7, 2025</p>
-      <p class="text-gray-700 mb-4 text-sm sm:text-base">Join us for Intercessory prayers and Holy Qurbana every evening.</p>
-      <img src="/Home/poster.jpeg" alt="Poster" class="w-full h-auto max-h-80 object-contain rounded-lg shadow">
-    </div>-->
-
+    -->
   </div>
-  <div id="no-announcement" class="hidden bg-gray-100 p-6 rounded-lg shadow text-center mt-6 max-w-2xl mx-auto">
-    <p class="text-gray-600 text-base sm:text-lg">📢 No announcements at the moment.</p>
+
+  <!-- No announcements message styled like an announcement -->
+  <div id="no-announcement" class="hidden opacity-100 translate-y-0 bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg shadow-md w-full max-w-2xl relative text-center">
+    <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800">📢 No announcements at the moment</h3>
   </div>
 </section>
 
@@ -145,14 +144,24 @@
 document.addEventListener("DOMContentLoaded", () => {
   const list = document.getElementById("announcements-list");
   const fallback = document.getElementById("no-announcement");
-  let announcements = Array.from(list.children).filter(el => el.nodeType === 1);
-  if (announcements.length === 0) fallback.classList.remove("hidden");
-  else {
-    announcements.sort((a,b)=> new Date(b.dataset.date)-new Date(a.dataset.date));
-    list.innerHTML="";
-    announcements.forEach((el,index)=>{
+
+  let announcements = Array.from(list.children).filter(el => el.classList.contains("announcement"));
+
+  if (announcements.length === 0) {
+    // No announcements: hide list, show fallback
+    list.classList.add("hidden");
+    fallback.classList.remove("hidden");
+  } else {
+    // Announcements exist: show list with animation, hide fallback
+    fallback.classList.add("hidden");
+    announcements.sort((a, b) => new Date(b.dataset.date) - new Date(a.dataset.date));
+    list.innerHTML = "";
+    announcements.forEach((el, index) => {
       list.appendChild(el);
-      setTimeout(()=>{el.classList.remove("opacity-0","translate-y-4"); el.classList.add("transition","duration-700","ease-out","opacity-100","translate-y-0");}, 180*index);
+      setTimeout(() => {
+        el.classList.remove("opacity-0", "translate-y-4");
+        el.classList.add("transition", "duration-700", "ease-out", "opacity-100", "translate-y-0");
+      }, 180 * index);
     });
   }
 });
