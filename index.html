@@ -244,6 +244,39 @@ function showToast(message='✅ Copied!', bgClass='bg-green-600'){
   setTimeout(()=>{toast.classList.add('hidden');},2200);
 }
 </script>
+ <script>
+async function trackUniqueVisitors() {
+    try {
+        // Get visitor IP Address
+        let ip = await fetch("https://api64.ipify.org?format=json")
+            .then(res => res.json())
+            .then(data => data.ip);
+
+        let key = "stmaryschurch-" + ip; // each IP gets unique key
+
+        // Check if this IP has been counted before
+        let check = await fetch(`https://api.countapi.xyz/get/stmarys/${key}`);
+        if (check.status === 404) {
+            // First time visitor → increment main counter
+            await fetch("https://api.countapi.xyz/hit/stmarys/uniqueVisitors");
+
+            // Create entry so this IP doesn’t count again
+            await fetch(`https://api.countapi.xyz/create?namespace=stmarys&key=${key}&value=1`);
+        }
+
+        // Now fetch total count
+        let countData = await fetch("https://api.countapi.xyz/get/stmarys/uniqueVisitors")
+            .then(res => res.json());
+
+        document.getElementById("visitor-count").innerText = countData.value;
+
+    } catch (err) {
+        console.error("Visitor tracking error:", err);
+    }
+}
+
+trackUniqueVisitors();
+</script> 
 
 <!-- Footer -->
 <footer class="bg-gray-900 text-white text-center py-6">
@@ -261,6 +294,9 @@ function showToast(message='✅ Copied!', bgClass='bg-green-600'){
               d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 
                  9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
       </svg>
+      <p class="text-gray-600 text-sm">Total Unique Visitors: 
+   <span id="visitor-count">0</span>
+      </p>
 
       <span class="text-gray-300 text-sm sm:text-base">Unique Visitors:</span>
 
