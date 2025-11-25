@@ -295,27 +295,9 @@ trackUniqueVisitors();
                  9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
       </svg>
       <p class="text-gray-600 text-sm">Total Unique Visitors: 
-   <span id="visitor-count">0</span>
+   <span id="visitor-count">20</span>
       </p>
-
-      <span class="text-gray-300 text-sm sm:text-base">Unique Visitors:</span>
-
-      <!-- Hits.sh Badge -->
-      <img id="visitor-badge"
-           src="https://hits.sh/stmarysjsocnaigaon.github.io.svg?style=flat-square&label=Visitors&color=blue&view=unique" 
-           alt="Unique Visitors" 
-           class="rounded-lg shadow-md h-6 sm:h-7 transition-transform duration-500"/>
-    </div>
   </div>
 </footer>
-
-<script>
-  // Add a pulse animation effect when badge loads
-  const badge = document.getElementById("visitor-badge");
-  badge.addEventListener("load", () => {
-    badge.classList.add("scale-125");
-    setTimeout(() => badge.classList.remove("scale-125"), 500);
-  });
-</script>
 </body>
 </html>
